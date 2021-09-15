@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models.fields import TextField
+from datetime import date
 
 # Create your models here.
 
@@ -22,7 +22,7 @@ class Survey(models.Model):
         max_length=255, verbose_name='Наименоваение опроса')
     
     start_date = models.DateField(
-        auto_now_add=True, verbose_name="Начало опроса")
+        auto_created=True, default=date.today, verbose_name="Начало опроса", editable=True)
    
     end_date = models.DateField(verbose_name='Будет окончен')
     
